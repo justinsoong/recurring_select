@@ -164,6 +164,8 @@ window.RecurringSelectDialog =
       else
         #@never_option = @outer_holder.find "input[name='rs_termination'][value='count']"
         #@never_option.prop('checked', true)
+        @count_option = @outer_holder.find "input[name='rs_termination'][value='count']"
+        @count_option.prop('checked', true)
         @occurrence_count = @outer_holder.find '#rs_occurrence_count'
         @occurrence_count.val(10)
 
