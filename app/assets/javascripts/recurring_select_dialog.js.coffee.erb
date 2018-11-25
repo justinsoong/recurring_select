@@ -168,8 +168,10 @@ window.RecurringSelectDialog =
         @count_option.prop('checked', true)
         @occurrence_count = @outer_holder.find '#rs_occurrence_count'
         @occurrence_count.val(10)
+        @current_rule.str = null
+        @current_rule.hash ||= {}
         @current_rule.hash.count = 10
-        @summaryUpdate()
+        @current_rule.hash.until = null
 
       @all_termination_options = @outer_holder.find ".rs_termination_section input[type='radio'], #rs_occurrence_count, #rs_until_date"
       @all_termination_options.on "change", @terminationChanged
@@ -326,6 +328,7 @@ window.RecurringSelectDialog =
       false
 
     terminationChanged: (event) =>
+      console.log(event)
       @selected_termination_type = @outer_holder.find ".rs_termination_section input[type='radio']:checked"
       if !@selected_termination_type?
         return
