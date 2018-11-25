@@ -168,7 +168,8 @@ window.RecurringSelectDialog =
         @count_option.prop('checked', true)
         @occurrence_count = @outer_holder.find '#rs_occurrence_count'
         @occurrence_count.val(10)
-        @terminationChanged
+        @current_rule.hash.count = 10
+        @summaryUpdate()
 
       @all_termination_options = @outer_holder.find ".rs_termination_section input[type='radio'], #rs_occurrence_count, #rs_until_date"
       @all_termination_options.on "change", @terminationChanged
